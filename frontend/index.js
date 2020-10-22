@@ -23,6 +23,7 @@ joinGameBtn.addEventListener('click', joinGame);
 
 
 function newGame() {
+  console.log("new game");
   socket.emit('newGame');
   init();
 }
