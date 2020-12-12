@@ -74,7 +74,7 @@ io.on('connection', client => {
       console.log(state[roomName].players[client.number - 1].vel);
       state[roomName].players[client.number - 1].vel = vel;
     } 
-    else if (initialState) {
+    else if (vel && initialState) {
       console.log("START");
       initialState = false;
       state[roomName].players[0].vel = vel;
