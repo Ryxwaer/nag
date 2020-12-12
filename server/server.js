@@ -71,6 +71,13 @@ io.on('connection', client => {
     if (vel && vel.x != state[roomName].players[client.number - 1].vel.x * (-1) && vel.y != state[roomName].players[client.number - 1].vel.y * (-1)) {
       console.log(state[roomName].players[client.number - 1].vel);
       state[roomName].players[client.number - 1].vel = vel;
+    } 
+    else if (state[roomName].players[client.number - 1].vel == {x: 0, y:0}) {
+      console.log("START");
+      state[roomName].players[0].vel = vel;
+      state[roomName].players[1].vel = vel;
+
+      console.log(state[roomName].players[client.number - 1].vel);
     }
   }
 });
