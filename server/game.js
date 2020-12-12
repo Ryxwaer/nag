@@ -116,6 +116,10 @@ function gameLoop(state) {
         console.log("player 1 suicide");
         return 2;
       }*/
+      if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+        console.log("player 2 crashed");
+        return 1;
+      }
     }
 
     playerOne.snake.push({ ...playerOne.pos });
@@ -130,19 +134,14 @@ function gameLoop(state) {
         console.log("player 2 suicide");
         return 1;
       }
+      if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
+        console.log("player 1 crashed");
+        return 2;
+      }
     }
 
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.snake.shift();
-  }
-
-  if (playerOne.pos[0].x === playerTwo.pos.x && playerOne.pos[0].y === playerTwo.pos.y){
-    console.log("player 1 crashed");
-    return 2
-  }
-  if (playerTwo.pos[0].x === playerOne.pos.x && playerTwo.pos[0].y === playerOne.pos.y){
-    console.log("player 2 crashed");
-    return 1
   }
 
   return false;
