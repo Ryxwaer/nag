@@ -1,5 +1,6 @@
 const BG_COLOUR = '#231f20';
-const SNAKE_COLOUR = '#c2c2c2';
+const SNAKE_1_COLOUR = '#75FF33';
+const SNAKE_2_COLOUR = '#00F2FF';
 const FOOD_COLOUR = '#e66916';
 const OBSTICLE_COLOUR = '#808080';
 
@@ -74,8 +75,8 @@ function paintGame(state) {
   ctx.fillStyle = OBSTICLE_COLOUR;
   ctx.fillRect(obsticle.x * size, obsticle.y * size, size, size);
 
-  paintPlayer(state.players[0], size, SNAKE_COLOUR);
-  paintPlayer(state.players[1], size, 'red');
+  paintPlayer(state.players[0], size, SNAKE_1_COLOUR);
+  paintPlayer(state.players[1], size, SNAKE_2_COLOUR);
 }
 
 function paintPlayer(playerState, size, colour) {

@@ -58,14 +58,14 @@ function gameLoop(state) {
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
 
-  playerOne.pos.x += playerOne.vel.x;
-  playerOne.pos.y += playerOne.vel.y;
+  //playerOne.pos.x += playerOne.vel.x;
+  //playerOne.pos.y += playerOne.vel.y;
 
-  playerTwo.pos.x += 0;
-  playerTwo.pos.y += 0;
+  playerOne.pos.x += 0;
+  playerOne.pos.y += 0;
 
-  //playerTwo.pos.x += playerTwo.vel.x;
-  //playerTwo.pos.y += playerTwo.vel.y;
+  playerTwo.pos.x += playerTwo.vel.x;
+  playerTwo.pos.y += playerTwo.vel.y;
 
   // player 1 mimo hracie pole
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
@@ -113,6 +113,7 @@ function gameLoop(state) {
     for (let cell of playerOne.snake) {
       // kolizia
       if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
+        console.log("player 1 suicide");
         return 2;
       }
     }
@@ -126,12 +127,22 @@ function gameLoop(state) {
     for (let cell of playerTwo.snake) {
       // kolizia
       if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+        console.log("player 2 suicide");
         return 1;
       }
     }
 
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.snake.shift();
+  }
+
+  if (playerOne.pos[0].x === playerTwo.pos.x && playerOne.pos[0].y === playerTwo.pos.y){
+    console.log("player 1 crashed");
+    return 2
+  }
+  if (playerTwo.pos[0].x === playerOne.pos.x && playerTwo.pos[0].y === playerOne.pos.y){
+    console.log("player 2 crashed");
+    return 1
   }
 
   return false;
