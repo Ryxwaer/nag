@@ -45,7 +45,7 @@ function createGameState() {
       ],
     }],
     food: {},
-    obticle: [{}],
+    obsticle: [{}],
     gridsize: GRID_SIZE,
   };
 }
@@ -93,16 +93,18 @@ function gameLoop(state) {
     console.log("player 2 papa");
   }
 
-  // player 1 narazil
-  if (state.obsticle.x === playerOne.pos.x && state.obsticle.y === playerOne.pos.y) {
-    console.log("player 1 narazil");
-    return 2;
-  }
-
-  // player 2 narazil
-  if (state.obsticle.x === playerTwo.pos.x && state.obsticle.y === playerTwo.pos.y) {
-    console.log("player 2 narazil");
-    return 1;
+  // naraz do prekazky
+  for (let cell of state.obsticle) {
+    // player 1 narazil
+    if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
+      console.log("player 1 narazil");
+      return 2;
+    }
+    // player 2 narazil
+    if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
+      console.log("player 2 narazil");
+      return 1;
+    }
   }
 
   // player 1 pohyb
