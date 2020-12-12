@@ -44,6 +44,7 @@ function createGameState() {
       ],
     }],
     food: {},
+    //obticle: {},
     gridsize: GRID_SIZE,
   };
 }
@@ -59,18 +60,21 @@ function gameLoop(state) {
   playerOne.pos.x += playerOne.vel.x;
   playerOne.pos.y += playerOne.vel.y;
 
-  playerTwo.pos.x += playerTwo.vel.x;
-  playerTwo.pos.y += playerTwo.vel.y;
+  //playerTwo.pos.x += playerTwo.vel.x;
+  //playerTwo.pos.y += playerTwo.vel.y;
 
-  // player 1 out of grid
+  // player 1 mimo hracie pole
   if (playerOne.pos.x < 0 || playerOne.pos.x > GRID_SIZE || playerOne.pos.y < 0 || playerOne.pos.y > GRID_SIZE) {
+    console.log("player 1 out of grid");
     return 2;
   }
-  // player 2 out of grid
+  // player 2 mimo hracie pole
   if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
+    console.log("player 2 out of grid");
     return 1;
   }
 
+  // player 1 papa
   if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
     playerOne.snake.push({ ...playerOne.pos });
     playerOne.pos.x += playerOne.vel.x;
@@ -78,6 +82,7 @@ function gameLoop(state) {
     randomFood(state);
   }
 
+  // player 2 papa
   if (state.food.x === playerTwo.pos.x && state.food.y === playerTwo.pos.y) {
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.pos.x += playerTwo.vel.x;
@@ -85,8 +90,10 @@ function gameLoop(state) {
     randomFood(state);
   }
 
+  // player 1 pohyb
   if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerOne.snake) {
+      // kolizia
       if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
         return 2;
       }
@@ -96,8 +103,10 @@ function gameLoop(state) {
     playerOne.snake.shift();
   }
 
+  // player 2 pohyb
   if (playerTwo.vel.x || playerTwo.vel.y) {
     for (let cell of playerTwo.snake) {
+      // kolizia
       if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
         return 1;
       }
@@ -110,6 +119,7 @@ function gameLoop(state) {
   return false;
 }
 
+// nahodne generovanie jedla
 function randomFood(state) {
   food = {
     x: Math.floor(Math.random() * GRID_SIZE),
