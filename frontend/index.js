@@ -65,7 +65,6 @@ function paintGame(state) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const food = state.food;
-  const obsticle = state.obsticle;
   const gridsize = state.gridsize;
   const size = canvas.width / gridsize;
 
@@ -73,8 +72,9 @@ function paintGame(state) {
   ctx.fillRect(food.x * size, food.y * size, size, size);
 
   ctx.fillStyle = OBSTICLE_COLOUR;
-  for (let cell of obsticle) {
+  for (let cell of state.obsticle) {
     ctx.fillRect(cell.x * size, cell.y * size, size, size);
+    console.log("fill");
   }
 
   paintPlayer(state.players[0], size, SNAKE_1_COLOUR);
