@@ -45,7 +45,7 @@ function createGameState() {
       ],
     }],
     food: {},
-    obsticle: [{}],
+    obsticle: [],
     gridsize: GRID_SIZE,
   };
 }
