@@ -5,4 +5,5 @@ const OBSTICLES = 10;
 module.exports = {
   FRAME_RATE,
   GRID_SIZE,
+  OBSTICLES,
 }
