@@ -111,11 +111,11 @@ function gameLoop(state) {
   // player 1 pohyb
   if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerOne.snake) {
-      // kolizia
+      /*/ kolizia
       if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
         console.log("player 1 suicide");
         return 2;
-      }
+      }*/
     }
 
     playerOne.snake.push({ ...playerOne.pos });
