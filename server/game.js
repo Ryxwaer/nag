@@ -8,8 +8,8 @@ module.exports = {
 
 function initGame() {
   const state = createGameState()
-  randomFood(state);
   randomObsticle(state);
+  randomFood(state);
   return state;
 }
 
@@ -172,6 +172,7 @@ function randomFood(state) {
 function randomObsticle(state) {
   let i = 0;
   while(i < OBSTICLES){
+    console.log("generating obsticle: " + i + " of " + OBSTICLES);
     obsticle = {
         x: Math.floor(Math.random() * GRID_SIZE),
         y: Math.floor(Math.random() * GRID_SIZE),
@@ -188,9 +189,8 @@ function randomObsticle(state) {
         return randomObsticle(state);
       }
     }
-    i += 1;
-    console.log("obsticle: " + i + " generated");
     state.obsticle += obsticle;
+    i += 1;
   }
 }
 
