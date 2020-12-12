@@ -168,7 +168,8 @@ function randomFood(state) {
 
 // nahodne generovanie prekazok
 function randomObsticle(state) {
-  while(Object.keys(state.obsticle).length <= OBSTICLES){
+  let i = 0;
+  while(i <= OBSTICLES){
     obsticle = {
         x: Math.floor(Math.random() * GRID_SIZE),
         y: Math.floor(Math.random() * GRID_SIZE),
@@ -185,7 +186,7 @@ function randomObsticle(state) {
         return randomObsticle(state);
       }
     }
-
+    i += 1;
     state.obsticle += obsticle;
   }
 }
