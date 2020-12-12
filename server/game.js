@@ -189,6 +189,7 @@ function randomObsticle(state) {
       }
     }
     i += 1;
+    console.log("obsticle: " + i + " generated");
     state.obsticle += obsticle;
   }
 }

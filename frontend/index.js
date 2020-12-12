@@ -73,7 +73,9 @@ function paintGame(state) {
   ctx.fillRect(food.x * size, food.y * size, size, size);
 
   ctx.fillStyle = OBSTICLE_COLOUR;
-  ctx.fillRect(obsticle.x * size, obsticle.y * size, size, size);
+  for (let cell of obsticle) {
+    ctx.fillRect(cell.x * size, cell.y * size, size, size);
+  }
 
   paintPlayer(state.players[0], size, SNAKE_1_COLOUR);
   paintPlayer(state.players[1], size, SNAKE_2_COLOUR);
