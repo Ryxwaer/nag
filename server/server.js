@@ -79,6 +79,9 @@ io.on('connection', client => {
 
       console.log(state[roomName].players[client.number - 1].vel);
     }
+    else {
+      console.log("vel: " + vel + " = " + state[roomName].players[client.number - 1].vel);
+    }
   }
 });
 
