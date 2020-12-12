@@ -58,11 +58,11 @@ function gameLoop(state) {
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
 
-  //playerOne.pos.x += playerOne.vel.x;
-  //playerOne.pos.y += playerOne.vel.y;
+  playerOne.pos.x += playerOne.vel.x;
+  playerOne.pos.y += playerOne.vel.y;
 
-  playerOne.pos.x += 0;
-  playerOne.pos.y += 0;
+  //playerOne.pos.x += 0;
+  //playerOne.pos.y += 0;
 
   playerTwo.pos.x += playerTwo.vel.x;
   playerTwo.pos.y += playerTwo.vel.y;
@@ -111,11 +111,11 @@ function gameLoop(state) {
   // player 1 pohyb
   if (playerOne.vel.x || playerOne.vel.y) {
     for (let cell of playerOne.snake) {
-      /*/ kolizia
+      // kolizia
       if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
         console.log("player 1 suicide");
         return 2;
-      }*/
+      }
       if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
         console.log("player 2 crashed");
         return 1;
