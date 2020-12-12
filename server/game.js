@@ -9,6 +9,7 @@ module.exports = {
 function initGame() {
   const state = createGameState()
   randomFood(state);
+  randomObsticle(state);
   return state;
 }
 
@@ -44,7 +45,7 @@ function createGameState() {
       ],
     }],
     food: {},
-    //obticle: {},
+    obticle: {},
     gridsize: GRID_SIZE,
   };
 }
@@ -59,6 +60,9 @@ function gameLoop(state) {
 
   playerOne.pos.x += playerOne.vel.x;
   playerOne.pos.y += playerOne.vel.y;
+
+  playerTwo.pos.x += 0;
+  playerTwo.pos.y += 0;
 
   //playerTwo.pos.x += playerTwo.vel.x;
   //playerTwo.pos.y += playerTwo.vel.y;
@@ -80,6 +84,7 @@ function gameLoop(state) {
     playerOne.pos.x += playerOne.vel.x;
     playerOne.pos.y += playerOne.vel.y;
     randomFood(state);
+    console.log("player 1 papa");
   }
 
   // player 2 papa
@@ -88,6 +93,7 @@ function gameLoop(state) {
     playerTwo.pos.x += playerTwo.vel.x;
     playerTwo.pos.y += playerTwo.vel.y;
     randomFood(state);
+    console.log("player 2 papa");
   }
 
   // player 1 pohyb
@@ -139,6 +145,28 @@ function randomFood(state) {
   }
 
   state.food = food;
+}
+
+// nahodne generovanie prekazok
+function randomObsticle(state) {
+  obsticle = {
+    x: Math.floor(Math.random() * GRID_SIZE),
+    y: Math.floor(Math.random() * GRID_SIZE),
+  }
+
+  for (let cell of state.players[0].snake) {
+    if (cell.x === obsticle.x && cell.y === obsticle.y) {
+      return randomObsticle(state);
+    }
+  }
+
+  for (let cell of state.players[1].snake) {
+    if (cell.x === obsticle.x && cell.y === obsticle.y) {
+      return randomObsticle(state);
+    }
+  }
+
+  state.obsticle = obsticle;
 }
 
 function getUpdatedVelocity(keyCode) {

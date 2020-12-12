@@ -1,6 +1,7 @@
 const BG_COLOUR = '#231f20';
 const SNAKE_COLOUR = '#c2c2c2';
 const FOOD_COLOUR = '#e66916';
+const OBSTICLE_COLOUR = '#808080';
 
 const socket = io('https://salty-wave-03675.herokuapp.com/');
 
@@ -63,11 +64,15 @@ function paintGame(state) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const food = state.food;
+  const obsticle = state.obsticle;
   const gridsize = state.gridsize;
   const size = canvas.width / gridsize;
 
   ctx.fillStyle = FOOD_COLOUR;
   ctx.fillRect(food.x * size, food.y * size, size, size);
+
+  ctx.fillStyle = OBSTICLE_COLOUR;
+  ctx.fillRect(obsticle.x * size, obsticle.y * size, size, size);
 
   paintPlayer(state.players[0], size, SNAKE_COLOUR);
   paintPlayer(state.players[1], size, 'red');
