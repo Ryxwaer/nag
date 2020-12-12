@@ -5,7 +5,8 @@ const { makeid } = require('./utils');
 
 const state = {};
 const clientRooms = {};
-const initialState = true;
+
+var initialState = true;
 
 io.on('connection', client => {
 

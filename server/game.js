@@ -1,4 +1,4 @@
-const { GRID_SIZE } = require('./constants');
+const { GRID_SIZE, OBSTICLES } = require('./constants');
 
 module.exports = {
   initGame,
@@ -21,7 +21,7 @@ function createGameState() {
         y: 10,
       },
       vel: {
-        x: 1,
+        x: 0,
         y: 0,
       },
       snake: [
@@ -35,7 +35,7 @@ function createGameState() {
         y: 10,
       },
       vel: {
-        x: 1,
+        x: 0,
         y: 0,
       },
       snake: [
@@ -45,7 +45,7 @@ function createGameState() {
       ],
     }],
     food: {},
-    obticle: {},
+    obticle: [],
     gridsize: GRID_SIZE,
   };
 }
@@ -149,7 +149,7 @@ function randomFood(state) {
   food = {
     x: Math.floor(Math.random() * GRID_SIZE),
     y: Math.floor(Math.random() * GRID_SIZE),
-  }
+  };
 
   for (let cell of state.players[0].snake) {
     if (cell.x === food.x && cell.y === food.y) {
@@ -168,24 +168,26 @@ function randomFood(state) {
 
 // nahodne generovanie prekazok
 function randomObsticle(state) {
-  obsticle = {
-    x: Math.floor(Math.random() * GRID_SIZE),
-    y: Math.floor(Math.random() * GRID_SIZE),
-  }
+  while(state.obsticle.length <= OBSTICLES){
+    obsticle = {
+        x: Math.floor(Math.random() * GRID_SIZE),
+        y: Math.floor(Math.random() * GRID_SIZE),
+      };
 
-  for (let cell of state.players[0].snake) {
-    if (cell.x === obsticle.x && cell.y === obsticle.y) {
-      return randomObsticle(state);
+    for (let cell of state.players[0].snake) {
+      if (cell.x === obsticle.x && cell.y === obsticle.y) {
+        return randomObsticle(state);
+      }
     }
-  }
 
-  for (let cell of state.players[1].snake) {
-    if (cell.x === obsticle.x && cell.y === obsticle.y) {
-      return randomObsticle(state);
+    for (let cell of state.players[1].snake) {
+      if (cell.x === obsticle.x && cell.y === obsticle.y) {
+        return randomObsticle(state);
+      }
     }
-  }
 
-  state.obsticle = obsticle;
+    state.obsticle += obsticle;
+  }
 }
 
 function getUpdatedVelocity(keyCode) {
