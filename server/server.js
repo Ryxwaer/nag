@@ -72,7 +72,7 @@ io.on('connection', client => {
       console.log(state[roomName].players[client.number - 1].vel);
       state[roomName].players[client.number - 1].vel = vel;
     } 
-    else if (state[roomName].players[client.number - 1].vel == {x: 0, y:0}) {
+    else if (state[roomName].players[client.number - 1].vel.x == 0 && state[roomName].players[client.number - 1].vel.y == 0) {
       console.log("START");
       state[roomName].players[0].vel = vel;
       state[roomName].players[1].vel = vel;
@@ -80,7 +80,8 @@ io.on('connection', client => {
       console.log(state[roomName].players[client.number - 1].vel);
     }
     else {
-      console.log("vel: " + vel + " = " + state[roomName].players[client.number - 1].vel);
+      console.log("vel.x: " + vel.x + " = " + state[roomName].players[client.number - 1].vel.x);
+      console.log("vel.y: " + vel.y + " = " + state[roomName].players[client.number - 1].vel.y);
     }
   }
 });
