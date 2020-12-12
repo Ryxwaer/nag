@@ -5,7 +5,7 @@ const { makeid } = require('./utils');
 
 const state = {};
 const clientRooms = {};
-const initialState = {x:0, y:0};
+const initialState = true;
 
 io.on('connection', client => {
 
@@ -73,8 +73,9 @@ io.on('connection', client => {
       console.log(state[roomName].players[client.number - 1].vel);
       state[roomName].players[client.number - 1].vel = vel;
     } 
-    else if (state[roomName].players[client.number - 1].vel == null) {
+    else if (initialState) {
       console.log("START");
+      initialState = false;
       state[roomName].players[0].vel = vel;
       state[roomName].players[1].vel = vel;
 
