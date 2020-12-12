@@ -170,6 +170,7 @@ function randomFood(state) {
 
 // nahodne generovanie prekazok
 function randomObsticle(state) {
+  console.log("OBSTICLES");
   let i = 0;
   while(i < OBSTICLES){
     console.log("generating obsticle: " + i + " of " + OBSTICLES);
