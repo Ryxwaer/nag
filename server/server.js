@@ -80,10 +80,6 @@ io.on('connection', client => {
 
       console.log(state[roomName].players[client.number - 1].vel);
     }
-    else {
-      console.log("vel.x: " + vel.x + " = " + state[roomName].players[client.number - 1].vel.x);
-      console.log("vel.y: " + vel.y + " = " + state[roomName].players[client.number - 1].vel.y);
-    }
   }
 });
 
