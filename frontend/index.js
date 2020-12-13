@@ -49,8 +49,14 @@ function init() {
 
   canvas.width = canvas.height = 600;
 
-  ctx.fillStyle = BG_COLOUR;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let i of canvas.width) {
+    for (let j of canvas.height) {
+      ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + ')';
+      //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
+      ctx.fillRect(i, j, canvas.width, canvas.height);
+    }
+  }
+  //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   document.addEventListener('keydown', keydown);
   gameActive = true;

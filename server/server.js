@@ -1,5 +1,5 @@
 const io = require('socket.io')();
-const { initGame, gameLoop, getUpdatedVelocity } = require('./game');
+const { initGame, gameLoop, getUpdatedVelocity, speedUp } = require('./game');
 const { FRAME_RATE } = require('./constants');
 const { makeid } = require('./utils');
 
@@ -96,7 +96,7 @@ function startGameInterval(roomName) {
       state[roomName] = null;
       clearInterval(intervalId);
     }
-  }, 1000 / FRAME_RATE);
+  }, 1000 / FRAME_RATE * speedUp);
 }
 
 function emitGameState(room, gameState) {

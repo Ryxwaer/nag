@@ -1,9 +1,12 @@
 const { GRID_SIZE, OBSTICLES } = require('./constants');
 
+let speedUp = 1;
+
 module.exports = {
   initGame,
   gameLoop,
   getUpdatedVelocity,
+  speedUp,
 }
 
 function initGame() {
@@ -29,6 +32,7 @@ function createGameState() {
         {x: 2, y: 10},
         {x: 3, y: 10},
       ],
+      score: 0,
     }, {
       pos: {
         x: 18,
@@ -43,6 +47,7 @@ function createGameState() {
         {x: 17, y: 10},
         {x: 16, y: 10},
       ],
+      score: 0,
     }],
     food: {},
     obsticle: [],
@@ -80,6 +85,7 @@ function gameLoop(state) {
     playerOne.snake.push({ ...playerOne.pos });
     playerOne.pos.x += playerOne.vel.x;
     playerOne.pos.y += playerOne.vel.y;
+    playerOne.score += 1;
     randomFood(state);
     console.log("player 1 papa");
   }
@@ -89,6 +95,7 @@ function gameLoop(state) {
     playerTwo.snake.push({ ...playerTwo.pos });
     playerTwo.pos.x += playerTwo.vel.x;
     playerTwo.pos.y += playerTwo.vel.y;
+    playerTwo.score += 1;
     randomFood(state);
     console.log("player 2 papa");
   }
