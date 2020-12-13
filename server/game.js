@@ -185,7 +185,7 @@ function randomFood(state) {
 // nahodne generovanie prekazok
 function randomObsticle(state) {
   console.log("OBSTICLES " + OBSTICLES);
-  for(var i = 0; i < OBSTICLES; i++){
+  while( (state.obsticle).length <= OBSTICLES){
     console.log("generating obsticle: " + (i + 1) + " of " + OBSTICLES);
     obsticle = {
         x: Math.floor(Math.random() * GRID_SIZE),
