@@ -55,13 +55,14 @@ function init() {
   var js = 0;
   for (var i = size; i <= canvas.width; i += size) {
     for (var j = size; j <= canvas.height; j += size) {
+      is = i - size;
+      js = j - size;
       ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + '%)';
       //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
       ctx.fillRect(is, js, i, j);
-      is = i;
-      js = j;
     }
   }
+  console.log("canvas filled");
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   document.addEventListener('keydown', keydown);
