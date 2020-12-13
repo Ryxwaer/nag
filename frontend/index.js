@@ -82,6 +82,10 @@ function paintGame(state) {
   //ctx.fillStyle = BG_COLOUR;
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  const food = state.food;
+  const gridsize = state.gridsize;
+  const size = canvas.width / gridsize;
+
   var is = 0;
   var js = 0;
   for (var i = size; i <= canvas.width; i += size) {
@@ -94,10 +98,6 @@ function paintGame(state) {
     }
   }
   console.log("canvas filled");
-
-  const food = state.food;
-  const gridsize = state.gridsize;
-  const size = canvas.width / gridsize;
 
   ctx.fillStyle = FOOD_COLOUR;
   ctx.fillRect(food.x * size, food.y * size, size, size);
