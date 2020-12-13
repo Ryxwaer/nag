@@ -100,16 +100,23 @@ function gameLoop(state) {
     console.log("player 2 papa");
   }
 
+  // speed up ked je celkove skore vyssie ako 5
+  if (playerTwo.score + playerOne.score > 3) {
+    progres = 0;
+    speedUp -= 0.1;
+    console.log("speed UP");
+  }
+
   // naraz do prekazky
   for (let cell of state.obsticle) {
     // player 1 narazil
     if (cell.x === playerOne.pos.x && cell.y === playerOne.pos.y) {
-      console.log("player 1 narazil");
+      console.log("player 1 crashed");
       return 2;
     }
     // player 2 narazil
     if (cell.x === playerTwo.pos.x && cell.y === playerTwo.pos.y) {
-      console.log("player 2 narazil");
+      console.log("player 2 crashed");
       return 1;
     }
   }
