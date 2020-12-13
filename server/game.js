@@ -181,7 +181,7 @@ function randomFood(state) {
 
   for (let cell of state.obsticle) {
     if (cell.x === obsticle.x && cell.y === obsticle.y) {
-      return randomObsticle(state);
+      return randomFood(state);
     }
   }
 
