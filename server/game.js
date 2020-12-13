@@ -1,6 +1,6 @@
 const { GRID_SIZE, OBSTICLES } = require('./constants');
 
-let speedUp = 1;
+let speedUp = 2;
 
 var left = 65;
 var down = 83;
