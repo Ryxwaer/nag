@@ -76,8 +76,6 @@ function keydown(e) {
 
 function paintGame(state) {
 
-  console.log("PAINT GAME");
-
   //ctx.fillStyle = BG_COLOUR;
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -116,7 +114,6 @@ function paintGame(state) {
       ctx.fillRect(is, js, i, j);
     }
   }
-  console.log("canvas filled");
 
   ctx.fillStyle = FOOD_COLOUR;
   ctx.fillRect(food.x * size, food.y * size, size, size);

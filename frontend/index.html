@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Nag</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
 <style>
 #gameScreen {
   display: none;
@@ -57,12 +55,9 @@
             <br>
             <input id="left" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="move left: ArrowLeft">
 
-            <p id="output"></p>
-
             <script>
             function myFunction(event,id) {
               var x = event.key;
-              document.getElementById("output").innerHTML = "The pressed key was: " + x;
               document.getElementById(id).value = "key " + id + ": " + x;
             }
           </script>

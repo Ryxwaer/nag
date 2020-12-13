@@ -12,6 +12,11 @@ io.on('connection', client => {
   client.on('newGame', handleNewGame);
   client.on('joinGame', handleJoinGame);
 
+  function handleKeyUp(keyCode) {
+    
+    
+  }
+
   function handleJoinGame(roomName) {
     const room = io.sockets.adapter.rooms[roomName];
 
@@ -55,6 +60,7 @@ io.on('connection', client => {
   }
 
   function handleKeydown(keyCode) {
+    console.log("keyCode: " + keyCode);
     const roomName = clientRooms[client.id];
     if (!roomName) {
       return;
