@@ -234,15 +234,19 @@ function getUpdatedVelocity(keyCode) {
       return { x: 0, y: 1 };
     }
     case (left): {    // vlavo
+      console.log("left");
       return { x: -1, y: 0 };
     }
     case (down): {    // dolu
+      console.log("down");
       return { x: 0, y: -1 };
     }
     case (right): {   // vpravo
+      console.log("right");
       return { x: 1, y: 0 };
     }
     case (up): {      // hore
+      console.log("up");
       return { x: 0, y: 1 };
     }
   }
