@@ -82,6 +82,19 @@ function paintGame(state) {
   //ctx.fillStyle = BG_COLOUR;
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  var is = 0;
+  var js = 0;
+  for (var i = size; i <= canvas.width; i += size) {
+    for (var j = size; j <= canvas.height; j += size) {
+      is = i - size;
+      js = j - size;
+      ctx.fillStyle = 'hsl(113,70%,' + (20 + 10*Math.random()) + '%)';
+      //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
+      ctx.fillRect(is, js, i, j);
+    }
+  }
+  console.log("canvas filled");
+
   const food = state.food;
   const gridsize = state.gridsize;
   const size = canvas.width / gridsize;
