@@ -258,18 +258,22 @@ function changeControls(key, keyCode) {
     case ("left"): {
       left = keyCode;
       console.log("LEFT");
+      return;
     }
     case ("down"): {
       console.log("DOWN");
       down = keyCode;
+      return;
     }
     case ("right"): {
       console.log("RIGHT");
       right = keyCode;
+      return;
     }
     case ("up"): {
       console.log("UP");
       up = keyCode;
+      return;
     }
   }
 }
