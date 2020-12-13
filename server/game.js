@@ -179,6 +179,12 @@ function randomFood(state) {
     }
   }
 
+  for (let cell of state.obsticle) {
+    if (cell.x === obsticle.x && cell.y === obsticle.y) {
+      return randomObsticle(state);
+    }
+  }
+
   state.food = food;
 }
 
@@ -201,6 +207,7 @@ function randomObsticle(state) {
         return randomObsticle(state);
       }
     }
+
     state.obsticle.push({...obsticle});
   }
   console.log(OBSTICLES + " OBSTICLES GENERATED");
@@ -208,16 +215,16 @@ function randomObsticle(state) {
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case 37: { // left
+    case (37 || 65): { // left
       return { x: -1, y: 0 };
     }
-    case 38: { // down
+    case (38 || 83): { // down
       return { x: 0, y: -1 };
     }
-    case 39: { // right
+    case (39 || 68): { // right
       return { x: 1, y: 0 };
     }
-    case 40: { // up
+    case (40 || 87): { // up
       return { x: 0, y: 1 };
     }
   }
