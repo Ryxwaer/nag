@@ -88,7 +88,7 @@ function paintGame(state) {
 
   bar2 = document.getElementById('bar2');
   bar2.innerHTML = 'Player2 score: ' + state.players[1].score;
-  bar2.style.width = 100 + state.players[1].score + '%';
+  bar2.style.width = 100 + (state.players[1].score * 5) + '%';
   bar2.style.background = SNAKE_2_COLOUR;
 
   const food = state.food;
