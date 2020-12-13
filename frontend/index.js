@@ -58,7 +58,6 @@ function init() {
       is = i - size;
       js = j - size;
       ctx.fillStyle = 'hsl(113,70%,' + (20 + 10*Math.random()) + '%)';
-      //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
       ctx.fillRect(is, js, i, j);
     }
   }
@@ -82,6 +81,14 @@ function paintGame(state) {
   //ctx.fillStyle = BG_COLOUR;
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  bar1 = document.getElementById('bar1');
+  bar1.style.width = 20 + state.players[0].score + '%';
+  bar1.style.background = SNAKE_1_COLOUR;
+
+  bar2 = document.getElementById('bar2');
+  bar2.style.width = 20 + state.players[1].score + '%';
+  bar2.style.background = SNAKE_2_COLOUR;
+
   const food = state.food;
   const gridsize = state.gridsize;
   const size = canvas.width / gridsize;
@@ -93,7 +100,6 @@ function paintGame(state) {
       is = i - size;
       js = j - size;
       ctx.fillStyle = 'hsl(113,70%,' + (20 + 5*Math.random()) + '%)';
-      //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
       ctx.fillRect(is, js, i, j);
     }
   }

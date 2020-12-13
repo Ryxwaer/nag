@@ -6,8 +6,6 @@ const { makeid } = require('./utils');
 const state = {};
 const clientRooms = {};
 
-var initialState = true;
-
 io.on('connection', client => {
 
   client.on('keydown', handleKeydown);
@@ -76,7 +74,6 @@ io.on('connection', client => {
     } 
     else if (vel && state[roomName].players[0].vel.x == 0 && state[roomName].players[0].vel.y == 0) {
       console.log("START");
-      initialState = false;
       state[roomName].players[0].vel = vel;
       state[roomName].players[1].vel = vel;
 
@@ -88,7 +85,6 @@ io.on('connection', client => {
 function startGameInterval(roomName) {
   const intervalId = setInterval(() => {
     const winner = gameLoop(state[roomName]);
-    console.log("interval");
     if (!winner) {
       emitGameState(roomName, state[roomName])
     } else {
