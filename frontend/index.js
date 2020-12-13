@@ -50,7 +50,7 @@ function init() {
   canvas.width = canvas.height = 600;
 
   const size = canvas.width / 30;
-
+/*
   var is = 0;
   var js = 0;
   for (var i = size; i <= canvas.width; i += size) {
@@ -63,7 +63,9 @@ function init() {
     }
   }
   console.log("canvas filled");
-  //ctx.fillRect(0, 0, canvas.width, canvas.height);
+  */
+  ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + '%)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   document.addEventListener('keydown', keydown);
   gameActive = true;
@@ -74,6 +76,9 @@ function keydown(e) {
 }
 
 function paintGame(state) {
+
+  console.log("PAINT GAME");
+
   ctx.fillStyle = BG_COLOUR;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
