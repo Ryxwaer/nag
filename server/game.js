@@ -109,7 +109,7 @@ function gameLoop(state) {
   // speed up ked je celkove skore vyssie ako 5
   if (playerTwo.score + playerOne.score > 3) {
     progres = 0;
-    speedUp -= 0.1;
+    speedUp += 1;
     console.log("speed UP");
   }
 

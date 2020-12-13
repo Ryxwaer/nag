@@ -99,7 +99,7 @@ function startGameInterval(roomName) {
       state[roomName] = null;
       clearInterval(intervalId);
     }
-  }, 1000 / FRAME_RATE * speedUp);
+  }, 1000 / speedUp);
 }
 
 function emitGameState(room, gameState) {
