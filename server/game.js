@@ -221,16 +221,28 @@ var up = 87;
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case (37 || left): {    // hore
+    case (37): {    // hore
       return { x: -1, y: 0 };
     }
-    case (38 || down): {    // dolu
+    case (38): {    // dolu
       return { x: 0, y: -1 };
     }
-    case (39 || right): {   // vpravo
+    case (39): {   // vpravo
       return { x: 1, y: 0 };
     }
-    case (40 || up): {      // hore
+    case (40): {      // hore
+      return { x: 0, y: 1 };
+    }
+    case (left): {    // hore
+      return { x: -1, y: 0 };
+    }
+    case (down): {    // dolu
+      return { x: 0, y: -1 };
+    }
+    case (right): {   // vpravo
+      return { x: 1, y: 0 };
+    }
+    case (up): {      // hore
       return { x: 0, y: 1 };
     }
   }
