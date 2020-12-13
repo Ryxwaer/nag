@@ -113,7 +113,6 @@ function paintGame(state) {
   ctx.fillStyle = OBSTICLE_COLOUR;
   for (let cell of state.obsticle) {
     ctx.fillRect(cell.x * size, cell.y * size, size, size);
-    console.log("fill");
   }
 
   paintPlayer(state.players[0], size, SNAKE_1_COLOUR);
@@ -131,6 +130,7 @@ function paintPlayer(playerState, size, colour) {
 
 function handleInit(number) {
   playerNumber = number;
+  console.log("player number: " + playerNumber)
 }
 
 function handleGameState(gameState) {
