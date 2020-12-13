@@ -1,5 +1,5 @@
 const io = require('socket.io')();
-const { initGame, gameLoop, getUpdatedVelocity, speedUp } = require('./game');
+const { initGame, gameLoop, getUpdatedVelocity, changeControls, speedUp } = require('./game');
 const { FRAME_RATE } = require('./constants');
 const { makeid } = require('./utils');
 
@@ -14,8 +14,8 @@ io.on('connection', client => {
   client.on('setKey', setKey);
 
   function setKey(id, keyCode) {
-    console.log("id: " + id + " keyCode: " + keyCode);
-    
+    console.log("player: " + client.number + " id: " + id + " keyCode: " + keyCode);
+    changeControls(client.number, id, keyCode);
   }
 
   function handleJoinGame(roomName) {

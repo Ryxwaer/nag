@@ -7,6 +7,7 @@ module.exports = {
   gameLoop,
   getUpdatedVelocity,
   speedUp,
+  changeControls,
 }
 
 function initGame() {
@@ -213,19 +214,63 @@ function randomObsticle(state) {
   console.log(OBSTICLES + " OBSTICLES GENERATED");
 }
 
+var leftOne = 37;
+var leftTwo = 37;
+var downOne = 38;
+var downTwo = 38;
+var rightOne = 39;
+var rightTwo = 39;
+var upOne = 40;
+var upTwo = 40;
+
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case (37 || 65): { // left
+    case (leftOne || leftTwo): { // left
       return { x: -1, y: 0 };
     }
-    case (38 || 83): { // down
+    case (downOne || downTwo): { // down
       return { x: 0, y: -1 };
     }
-    case (39 || 68): { // right
+    case (rightOne || rightTwo): { // right
       return { x: 1, y: 0 };
     }
-    case (40 || 87): { // up
+    case (upOne || upTwo): { // up
       return { x: 0, y: 1 };
+    }
+  }
+}
+
+function changeControls(player, key, keyCode) {
+  if (player === 1) {
+    switch (key){
+      case ("left"): {
+        leftOne = keyCode;
+      }
+      case ("down"): {
+        downOne = keyCode;
+      }
+      case ("right"): {
+        rightOne = keyCode;
+      }
+      case ("up"): {
+        upOne = keyCode;
+      }
+    }
+  }
+  else if (player === 2) {
+    switch (key){
+      case ("left"): {
+        leftTwo = keyCode;
+      }
+      case ("down"): {
+        downTwo = keyCode;
+      }
+      case ("right"): {
+        rightTwo = keyCode;
+      }
+      case ("up"): {
+        upTwo = keyCode;
+      }
     }
   }
 }
