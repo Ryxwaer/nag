@@ -82,10 +82,12 @@ function paintGame(state) {
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   bar1 = document.getElementById('bar1');
+  bar1.innerHTML = 'your score: ' + state.players[0].score;
   bar1.style.width = 20 + state.players[0].score + '%';
   bar1.style.background = SNAKE_1_COLOUR;
 
   bar2 = document.getElementById('bar2');
+  bar2.innerHTML = 'your score: ' + state.players[1].score;
   bar2.style.width = 20 + state.players[1].score + '%';
   bar2.style.background = SNAKE_2_COLOUR;
 
