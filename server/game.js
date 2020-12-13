@@ -221,7 +221,7 @@ var up = 87;
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case (37): {    // hore
+    case (37): {    // vlavo
       return { x: -1, y: 0 };
     }
     case (38): {    // dolu
@@ -233,7 +233,7 @@ function getUpdatedVelocity(keyCode) {
     case (40): {      // hore
       return { x: 0, y: 1 };
     }
-    case (left): {    // hore
+    case (left): {    // vlavo
       return { x: -1, y: 0 };
     }
     case (down): {    // dolu
