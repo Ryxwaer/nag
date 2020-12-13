@@ -49,8 +49,8 @@ function init() {
 
   canvas.width = canvas.height = 600;
 
-  for (let i of canvas.width) {
-    for (let j of canvas.height) {
+  for (var i = 0; i < canvas.width; i++) {
+    for (var j = 0; j < canvas.height; j++) {
       ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + ')';
       //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
       ctx.fillRect(i, j, canvas.width, canvas.height);
