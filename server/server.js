@@ -11,9 +11,10 @@ io.on('connection', client => {
   client.on('keydown', handleKeydown);
   client.on('newGame', handleNewGame);
   client.on('joinGame', handleJoinGame);
+  client.on('setKey', setKey);
 
-  function handleKeyUp(keyCode) {
-    
+  function setKey(id, keyCode) {
+    console.log("id: " + id + " keyCode: " + keyCode);
     
   }
 
