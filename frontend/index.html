@@ -46,28 +46,27 @@
             >
               Join Game
             </button>
+
+            <p>Controls settings: </p>
+
+            <input id="down" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key down: ArrowDown">
+            <br>
+            <input id="up" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key up: ArrowUp">
+            <br>
+            <input id="right" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key right: ArrowRight">
+            <br>
+            <input id="left" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key left: ArrowLeft">
+
+            <p id="output"></p>
+
+            <script>
+            function myFunction(event,id) {
+              var x = event.key;
+              document.getElementById("output").innerHTML = "The pressed key was: " + x;
+              document.getElementById(id).value = "key " + id + ": " + x;
+            }
+          </script>
         </div>
-
-        <p>Controls settings: </p>
-
-        <input id="down" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key down: ArrowDown">
-        <br>
-        <input id="up" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key up: ArrowUp">
-        <br>
-        <input id="right" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key right: ArrowRight">
-        <br>
-        <input id="left" type="submit" style="width: 200px" onkeydown="value:myFunction(event,id)" value="key left: ArrowLeft">
-
-        <p id="output"></p>
-
-        <script>
-        function myFunction(event,id) {
-          var x = event.key;
-          document.getElementById("output").innerHTML = "The pressed key was: " + x;
-          document.getElementById(id).value = "key " + id + ": " + x;
-        }
-        </script>
-
       </div>
 
       <div id="gameScreen" class="h-100">
