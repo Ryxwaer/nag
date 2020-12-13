@@ -2,6 +2,11 @@ const { GRID_SIZE, OBSTICLES } = require('./constants');
 
 let speedUp = 1;
 
+var left = 64;
+var down = 83;
+var right = 68;
+var up = 87;
+
 module.exports = {
   initGame,
   gameLoop,
@@ -214,11 +219,6 @@ function randomObsticle(state) {
   console.log(OBSTICLES + " OBSTICLES GENERATED");
 }
 
-var left = 64;
-var down = 83;
-var right = 68;
-var up = 87;
-
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
     case (37): {    // vlavo
@@ -257,14 +257,18 @@ function changeControls(key, keyCode) {
   switch (key){
     case ("left"): {
       left = keyCode;
+      console.log("LEFT");
     }
     case ("down"): {
+      console.log("DOWN");
       down = keyCode;
     }
     case ("right"): {
+      console.log("RIGHT");
       right = keyCode;
     }
     case ("up"): {
+      console.log("UP");
       up = keyCode;
     }
   }
