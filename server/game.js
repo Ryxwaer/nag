@@ -2,7 +2,7 @@ const { GRID_SIZE, OBSTICLES } = require('./constants');
 
 let speedUp = 1;
 
-var left = 64;
+var left = 65;
 var down = 83;
 var right = 68;
 var up = 87;
@@ -221,23 +221,23 @@ function randomObsticle(state) {
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case (37): {    // vlavo
+    case (37): {      // vlavo
       return { x: -1, y: 0 };
     }
-    case (38): {    // dolu
+    case (38): {      // hore
       return { x: 0, y: -1 };
     }
-    case (39): {   // vpravo
+    case (39): {      // vpravo
       return { x: 1, y: 0 };
     }
-    case (40): {      // hore
+    case (40): {      // dole
       return { x: 0, y: 1 };
     }
     case (left): {    // vlavo
       console.log("left");
       return { x: -1, y: 0 };
     }
-    case (down): {    // dolu
+    case (up): {    // hore
       console.log("down");
       return { x: 0, y: -1 };
     }
@@ -245,7 +245,7 @@ function getUpdatedVelocity(keyCode) {
       console.log("right");
       return { x: 1, y: 0 };
     }
-    case (up): {      // hore
+    case (down): {      // dole
       console.log("up");
       return { x: 0, y: 1 };
     }
