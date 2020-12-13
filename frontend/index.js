@@ -53,7 +53,7 @@ function init() {
     for (var j = 0; j < canvas.height; j++) {
       ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + ')';
       //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
-      ctx.fillRect(i, j, canvas.width, canvas.height);
+      ctx.fillRect(i, j, i, j);
     }
   }
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
