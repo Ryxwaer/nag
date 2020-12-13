@@ -15,7 +15,7 @@ io.on('connection', client => {
 
   function setKey(id, keyCode) {
     console.log("player: " + client.number + " id: " + id + " keyCode: " + keyCode);
-    changeControls(client.number, id, keyCode);
+    changeControls(id, keyCode);
   }
 
   function handleJoinGame(roomName) {

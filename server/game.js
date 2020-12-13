@@ -214,63 +214,41 @@ function randomObsticle(state) {
   console.log(OBSTICLES + " OBSTICLES GENERATED");
 }
 
-var leftOne = 37;
-var leftTwo = 37;
-var downOne = 38;
-var downTwo = 38;
-var rightOne = 39;
-var rightTwo = 39;
-var upOne = 40;
-var upTwo = 40;
+var left = 64;
+var down = 83;
+var right = 68;
+var up = 87;
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case (leftOne || leftTwo): { // left
+    case (37 || left): { // left
       return { x: -1, y: 0 };
     }
-    case (downOne || downTwo): { // down
+    case (38 || down): { // down
       return { x: 0, y: -1 };
     }
-    case (rightOne || rightTwo): { // right
+    case (39 || right): { // right
       return { x: 1, y: 0 };
     }
-    case (upOne || upTwo): { // up
+    case (40 || up): { // up
       return { x: 0, y: 1 };
     }
   }
 }
 
-function changeControls(player, key, keyCode) {
-  if (player === 1) {
+function changeControls(key, keyCode) {
     switch (key){
       case ("left"): {
-        leftOne = keyCode;
+        left = keyCode;
       }
       case ("down"): {
-        downOne = keyCode;
+        down = keyCode;
       }
       case ("right"): {
-        rightOne = keyCode;
+        right = keyCode;
       }
       case ("up"): {
-        upOne = keyCode;
+        up = keyCode;
       }
     }
-  }
-  else if (player === 2) {
-    switch (key){
-      case ("left"): {
-        leftTwo = keyCode;
-      }
-      case ("down"): {
-        downTwo = keyCode;
-      }
-      case ("right"): {
-        rightTwo = keyCode;
-      }
-      case ("up"): {
-        upTwo = keyCode;
-      }
-    }
-  }
 }
