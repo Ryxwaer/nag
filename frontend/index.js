@@ -49,11 +49,17 @@ function init() {
 
   canvas.width = canvas.height = 600;
 
-  for (var i = 0; i < canvas.width; i++) {
-    for (var j = 0; j < canvas.height; j++) {
+  const size = canvas.width / gridsize;
+
+  var is = 0;
+  var js = 0;
+  for (var i = size; i <= canvas.width; i += size) {
+    for (var j = size; j <= canvas.height; j += size) {
       ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + '%)';
       //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
-      ctx.fillRect(i, j, i, j);
+      ctx.fillRect(is, js, i, j);
+      is = i;
+      js = j;
     }
   }
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
