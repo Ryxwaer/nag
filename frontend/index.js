@@ -92,7 +92,7 @@ function paintGame(state) {
     for (var j = size; j <= canvas.height; j += size) {
       is = i - size;
       js = j - size;
-      ctx.fillStyle = 'hsl(113,70%,' + (20 + 10*Math.random()) + '%)';
+      ctx.fillStyle = 'hsl(113,70%,' + (20 + 5*Math.random()) + '%)';
       //ctx.fillStyle = BG_COLOUR - 10 + Math.floor(Math.random() * 20);
       ctx.fillRect(is, js, i, j);
     }
