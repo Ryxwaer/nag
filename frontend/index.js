@@ -82,20 +82,20 @@ function paintGame(state) {
   if (playerNumber === 1) {
     bar1 = document.getElementById('bar1');
     bar1.innerHTML = 'Your score: ' + state.players[0].score;
-    bar1.style.width = 100 + (state.players[0].score * 5) + '%';
+    bar1.style.width = 60 + (state.players[0].score * 5) + '%';
     bar1.style.background = SNAKE_1_COLOUR;
     bar2 = document.getElementById('bar2');
     bar2.innerHTML = 'Oponent score: ' + state.players[1].score;
-    bar2.style.width = 100 + (state.players[1].score * 5) + '%';
+    bar2.style.width = 60 + (state.players[1].score * 5) + '%';
     bar2.style.background = SNAKE_2_COLOUR;
   } else {
     bar1 = document.getElementById('bar1');
     bar1.innerHTML = 'Your score: ' + state.players[1].score;
-    bar1.style.width = 100 + (state.players[1].score * 5) + '%';
+    bar1.style.width = 60 + (state.players[1].score * 5) + '%';
     bar1.style.background = SNAKE_2_COLOUR;
     bar2 = document.getElementById('bar2');
     bar2.innerHTML = 'Oponent score: ' + state.players[0].score;
-    bar2.style.width = 100 + (state.players[0].score * 5) + '%';
+    bar2.style.width = 60 + (state.players[0].score * 5) + '%';
     bar2.style.background = SNAKE_1_COLOUR;
   }
   
