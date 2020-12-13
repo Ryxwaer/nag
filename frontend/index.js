@@ -83,7 +83,7 @@ function paintGame(state) {
 
   bar1 = document.getElementById('bar1');
   bar1.innerHTML = 'Player1 score: ' + state.players[0].score;
-  bar1.style.width = 100 + state.players[0].score + '%';
+  bar1.style.width = 100 + (state.players[0].score * 5) + '%';
   bar1.style.background = SNAKE_1_COLOUR;
 
   bar2 = document.getElementById('bar2');
