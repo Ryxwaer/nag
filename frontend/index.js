@@ -49,7 +49,7 @@ function init() {
 
   canvas.width = canvas.height = 600;
 
-  const size = canvas.width / state.gridsize;
+  const size = canvas.width / 30;
 
   var is = 0;
   var js = 0;
