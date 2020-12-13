@@ -221,34 +221,35 @@ var up = 87;
 
 function getUpdatedVelocity(keyCode) {
   switch (keyCode) {
-    case (37 || left): { // left
+    case (37 || left): {    // hore
       return { x: -1, y: 0 };
     }
-    case (38 || down): { // down
+    case (38 || down): {    // dolu
       return { x: 0, y: -1 };
     }
-    case (39 || right): { // right
+    case (39 || right): {   // vpravo
       return { x: 1, y: 0 };
     }
-    case (40 || up): { // up
+    case (40 || up): {      // hore
       return { x: 0, y: 1 };
     }
   }
 }
 
 function changeControls(key, keyCode) {
-    switch (key){
-      case ("left"): {
-        left = keyCode;
-      }
-      case ("down"): {
-        down = keyCode;
-      }
-      case ("right"): {
-        right = keyCode;
-      }
-      case ("up"): {
-        up = keyCode;
-      }
+  console.log("KEY: " + key + " CODE: " + keyCode);
+  switch (key){
+    case ("left"): {
+      left = keyCode;
     }
+    case ("down"): {
+      down = keyCode;
+    }
+    case ("right"): {
+      right = keyCode;
+    }
+    case ("up"): {
+      up = keyCode;
+    }
+  }
 }

@@ -14,7 +14,7 @@ io.on('connection', client => {
   client.on('setKey', setKey);
 
   function setKey(id, keyCode) {
-    console.log("player: " + client.number + " id: " + id + " keyCode: " + keyCode);
+    console.log(" id: " + id + " keyCode: " + keyCode);
     changeControls(id, keyCode);
   }
 
