@@ -51,16 +51,10 @@ function init() {
 
   const size = canvas.width / 30;
 
-  var is = 0;
-  var js = 0;
-  for (var i = size; i <= canvas.width; i += size) {
-    for (var j = size; j <= canvas.height; j += size) {
-      is = i - size;
-      js = j - size;
-      ctx.fillStyle = 'hsl(113,70%,' + (20 + 10*Math.random()) + '%)';
-      ctx.fillRect(is, js, i, j);
-    }
-  }
+  var c = document.getElementById("canvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("image");
+  ctx.drawImage(img, 0, 0);
   console.log("canvas filled");
   
   //ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + '%)';
