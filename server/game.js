@@ -1,15 +1,17 @@
 const { GRID_SIZE, OBSTICLES } = require('./constants');
 
+let speedUp = 3;
+
 var left = 65;
 var down = 83;
 var right = 68;
 var up = 87;
-let condition = 1;
 
 module.exports = {
   initGame,
   gameLoop,
   getUpdatedVelocity,
+  speedUp,
   changeControls,
 }
 
@@ -102,6 +104,12 @@ function gameLoop(state) {
     playerTwo.score += 1;
     randomFood(state);
     console.log("player 2 papa");
+  }
+
+  // speed up ked je celkove skore vyssie ako 5
+  if (playerTwo.score + playerOne.score > 3) {
+    progres = 0;
+    speedUp += 1;
   }
 
   // naraz do prekazky
