@@ -1,5 +1,7 @@
+import speedUp from './game';
+
 const io = require('socket.io')();
-const { initGame, gameLoop, getUpdatedVelocity, changeControls, speedUp } = require('./game');
+const { initGame, gameLoop, getUpdatedVelocity, changeControls} = require('./game');
 const { FRAME_RATE } = require('./constants');
 const { makeid } = require('./utils');
 
