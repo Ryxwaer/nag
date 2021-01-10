@@ -4,6 +4,7 @@ var left = 65;
 var down = 83;
 var right = 68;
 var up = 87;
+let condition = 1;
 
 export let speedUp = 3;
 
@@ -106,10 +107,13 @@ function gameLoop(state) {
   }
 
   // speed up ked je celkove skore vyssie ako 5
-  if (playerTwo.score + playerOne.score > 3) {
-    progres = 0;
+  if ((playerTwo.score + playerOne.score) % 3 == 0 && condition == 1) {
+    condition = 0;
     speedUp += 1;
     console.log("speed UP: ", speedUp);
+  }
+  else {
+    condition = 1
   }
 
   // naraz do prekazky
