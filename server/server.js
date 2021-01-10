@@ -1,4 +1,4 @@
-import { speedUp } from './game';
+import { speedUp } from './game'
 
 const io = require('socket.io')();
 const { initGame, gameLoop, getUpdatedVelocity, changeControls} = require('./game');
