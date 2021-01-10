@@ -51,13 +51,14 @@ function init() {
 
   const size = canvas.width / 30;
 
-  var blueprint_background = new Image();
-  blueprint_background.src = 'nag.png'; 
-  blueprint_background.onload = function(){
-    var pattern = context.createPattern(this, "repeat");
-    context.fillStyle = pattern;
-    context.fill();
-  };
+  const img = new Image();
+  img.onload = draw;
+  img.src = 'nag.png';
+
+  function draw() {
+    const ctx = document.querySelector('canvas').getContext('2d');
+    ctx.drawImage(img, 0, 0);
+  }
   console.log("canvas filled");
   
   //ctx.fillStyle = 'hsl(113,70%,' + (20 + 20*Math.random()) + '%)';
