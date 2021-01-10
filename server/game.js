@@ -1,17 +1,16 @@
 const { GRID_SIZE, OBSTICLES } = require('./constants');
 
-let speedUp = 3;
-
 var left = 65;
 var down = 83;
 var right = 68;
 var up = 87;
 
+export let speedUp = 3;
+
 module.exports = {
   initGame,
   gameLoop,
   getUpdatedVelocity,
-  speedUp,
   changeControls,
 }
 
