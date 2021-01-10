@@ -99,7 +99,7 @@ function startGameInterval(roomName) {
       state[roomName] = null;
       clearInterval(intervalId);
     }
-    console.log("SPEED: ", 1000 / speedUp)
+    console.log("SPEED: ", speedUp)
   }, 1000 / speedUp);
 }
 

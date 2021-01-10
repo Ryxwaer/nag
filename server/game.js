@@ -110,7 +110,7 @@ function gameLoop(state) {
   if (playerTwo.score + playerOne.score > 3) {
     progres = 0;
     speedUp += 1;
-    console.log("speed UP");
+    console.log("speed UP: ", speedUp);
   }
 
   // naraz do prekazky
