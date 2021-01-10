@@ -1,12 +1,12 @@
-import { speedUp } from './game'
-
 const io = require('socket.io')();
 const { initGame, gameLoop, getUpdatedVelocity, changeControls} = require('./game');
 const { FRAME_RATE } = require('./constants');
 const { makeid } = require('./utils');
-
 const state = {};
 const clientRooms = {};
+
+counter = 0;
+speedUp = 3;
 
 io.on('connection', client => {
 
@@ -102,6 +102,11 @@ function startGameInterval(roomName) {
       clearInterval(intervalId);
     }
     console.log("SPEED: ", speedUp)
+    counter++;
+    if (counter > 10){
+      counter = 0;
+      speedUp++;
+    }
   }, 1000 / speedUp);
 }
 

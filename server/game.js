@@ -6,8 +6,6 @@ var right = 68;
 var up = 87;
 let condition = 1;
 
-export let speedUp = 3;
-
 module.exports = {
   initGame,
   gameLoop,
@@ -104,16 +102,6 @@ function gameLoop(state) {
     playerTwo.score += 1;
     randomFood(state);
     console.log("player 2 papa");
-  }
-
-  // speed up ked je celkove skore vyssie ako 5
-  if ((playerTwo.score + playerOne.score) % 3 == 0 && condition == 1) {
-    condition = 0;
-    speedUp += 1;
-    console.log("speed UP: ", speedUp);
-  }
-  else {
-    condition = 1
   }
 
   // naraz do prekazky
